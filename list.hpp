@@ -15,19 +15,12 @@
 
 #include <cstddef>
 
+#include "list_iterator.hpp"
+#include "list_node.hpp"
+
 
 template<typename T> 
 class List {
-
-  private:
-    struct Node {
-        Node* prev;
-        Node* next;
-        T data;
-
-        Node(T item) : data{std::move(item)} {};
-    };
-
   public:
     List() : size_(0), start_(nullptr), tail(nullptr) {};
     List(const List& other);
@@ -42,10 +35,14 @@ class List {
 
     size_t size() const noexcept; 
 
-    private:
-        size_t size_;
-        Node* start_;
-        Node* tail;
+    Iterator<T> begin() const;
+    Iterator<T> end() const;
+    void splice(Iterator<T> it, List &&other)
+
+  private:
+    size_t size_;
+    Node<T>* start_;
+    Node<T>* tail_;
 };
 
-#endif _DOUBLE_LINKED_LIST_HPP
+#endif

@@ -20,11 +20,11 @@ class Iterator {
 public:
     explicit Iterator(Node<T>* node);
 
-    Node<T>* node() const;
-    T& value() const;
-
     Iterator& operator++();
     Iterator& operator--();
+
+    Node<T>* operator->() const;
+    T& operator*() const;
 
     bool operator==(const Iterator&) const;
     bool operator!=(const Iterator&) const;

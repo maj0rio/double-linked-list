@@ -14,11 +14,11 @@
 
 template<typename T>
 class Node {
-    Node* prev;
-    Node* next;
+    Node<T>* prev;
+    Node<T>* next;
     T data;
 
-    Node(T item) : data{std::move(item)} {};
+    Node<T>(T item) : data{std::move(item)}, prev(nullptr), next(nullptr) {};
 };
 
 #endif
