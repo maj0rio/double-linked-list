@@ -12,7 +12,9 @@
 #ifndef _DOUBLE_LINKED_LIST_CPP
 #define _DOUBLE_LINKED_LIST_CPP
 
+#include <iostream>
 #include <stdexcept>
+#include <assert.h>
 
 #include "list.hpp"
 #include "list_node.hpp"
@@ -38,7 +40,7 @@ typename List<T>::Iterator List<T>::end() const {
 template<typename T>
 void List<T>::push_back(const T &x){
     if (size_ == 0) {
-        Node<T> *new_node = new Node<T>(x);
+        Node<T>* new_node = new Node<T>(x);
         start_ = new_node;
         tail_ = new_node; 
         size_ += 1;
@@ -76,7 +78,7 @@ void List<T>::pop_back() {
     if (size_ < 1)
         throw std::runtime_error("Size should be positive");
     if (size_ == 1) {
-        Node<T> *head = start_;
+        Node<T>* head = start_;
         delete head;
         start_ = nullptr;
         tail_ = nullptr;

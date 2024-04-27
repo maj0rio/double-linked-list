@@ -19,13 +19,13 @@
 template<typename T>
 class Node {
   public:
+    T data;
     Node* prev;
     Node* next;
-    T data;
+
 
     Node(T item) : data{std::move(item)}, prev(nullptr), next(nullptr) {};
     ~Node() {
-        data = T{};
         prev = nullptr;
         next = nullptr;
     }

@@ -5,14 +5,13 @@
 # Compiler settings - Can be customized.
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall
-LDFLAGS = 
+
 
 # Makefile settings - Can be customized.
-APPNAME = main
+APPNAME = list_unittest
 EXT = .cpp
 SRCDIR = src
 OBJDIR = obj
-
 ############## Do not change anything from here downwards! #############
 SRC = $(wildcard $(SRCDIR)/*$(EXT))
 OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
